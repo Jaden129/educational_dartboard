@@ -24,7 +24,10 @@ while True:
     try:
         difficulty = int(input('Select your difficulty from 1 to 10.\n'))
 
-        break
+        if 10 >= difficulty >= 1:
+            break
+        else:
+            continue
     except:
         print('Error, try again.')
 
@@ -32,6 +35,24 @@ while x <= 10:
     print(f'Round {x}!\n')
 
     time.sleep(1)
+
+    while True:
+        try:
+            req1 = random.randint(difficulty, difficulty + 10)
+            req2 = random.randint(difficulty, difficulty + 10)
+
+            ans = req1 * req2
+
+            answer = int(input(f'What is {req1} times {req2}?\n'))
+
+            if answer == ans:
+                print('That is correct.\n')
+            else:
+                print('Sorry, try again.\n')
+                continue
+            break
+        except:
+            print('Error, try again.\n')
 
     read_int('Select a number 1 through 20.\n')
 
@@ -49,21 +70,6 @@ while x <= 10:
 
     req1 = random.randint(difficulty, difficulty + 10)
     req2 = random.randint(difficulty, difficulty + 10)
-
-    while True:
-        try:
-            ans = int(input(f'Here is your problem. What is {req1} times {req2}?\n'))
-
-            if ans == req1 * req2:
-                print('That is correct, thank you.\n')
-
-                break
-            else:
-                print('Sorry, not correct. Try again.\n')
-
-                continue
-        except:
-            print('Error, try again.\n')
 
     if range_end >= throw_result >= range_start:
         multiplier = random.randint(0, 30)
